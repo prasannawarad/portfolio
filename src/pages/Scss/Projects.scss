@@ -1,0 +1,333 @@
+// Variables
+$primary-color: #2563eb;
+$primary-dark: #1d4ed8;
+$secondary-color: #64748b;
+$accent-color: #f59e0b;
+$text-dark: #1e293b;
+$text-light: #64748b;
+$bg-light: #f8fafc;
+$white: #ffffff;
+$shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+
+// Mixins
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@mixin section-padding {
+  padding: 4rem 0;
+}
+
+// Projects Page Styles
+.projects-page {
+  @include section-padding;
+  background: $bg-light;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: $text-dark;
+
+  .container {
+    @include container;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: $text-dark;
+    
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  .page-description {
+    font-size: 1.2rem;
+    color: $text-light;
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .project-card {
+    background: $white;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    &.featured {
+      border-color: $accent-color;
+      position: relative;
+
+      &::before {
+        content: '⭐ Featured';
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: $accent-color;
+        color: $white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 1;
+      }
+    }
+
+    .project-image {
+      height: 200px;
+      background: linear-gradient(135deg, $primary-color, $accent-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+
+      .project-icon {
+        font-size: 4rem;
+        color: $white;
+        z-index: 2;
+        position: relative;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1);
+        z-index: 1;
+      }
+    }
+
+    .project-content {
+      padding: 2rem;
+
+      .project-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $text-dark;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+      }
+
+      .project-description {
+        color: $text-light;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        font-size: 1rem;
+      }
+
+      .project-technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+
+        .tech-tag {
+          background: $bg-light;
+          color: $primary-color;
+          padding: 0.25rem 0.75rem;
+          border-radius: 15px;
+          font-size: 0.8rem;
+          font-weight: 500;
+          border: 1px solid #e2e8f0;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: $primary-color;
+            color: $white;
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .project-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        .project-link {
+          padding: 0.75rem 1.5rem;
+          border-radius: $border-radius;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          &.live-link {
+            background: $primary-color;
+            color: $white;
+
+            &:hover {
+              background: $primary-dark;
+              transform: translateY(-2px);
+              box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            }
+          }
+
+          &.github-link {
+            background: transparent;
+            color: $primary-color;
+            border: 2px solid $primary-color;
+
+            &:hover {
+              background: $primary-color;
+              color: $white;
+              transform: translateY(-2px);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .more-projects {
+    text-align: center;
+    background: $white;
+    padding: 3rem;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: $text-dark;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: $text-light;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .github-profile-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: $primary-color;
+      color: $white;
+      text-decoration: none;
+      border-radius: $border-radius;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $primary-dark;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .projects-page {
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .page-description {
+      font-size: 1.1rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-card {
+      .project-content {
+        padding: 1.5rem;
+
+        .project-title {
+          font-size: 1.3rem;
+        }
+
+        .project-links {
+          flex-direction: column;
+
+          .project-link {
+            text-align: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .more-projects {
+      padding: 2rem;
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-page {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .project-card {
+      .project-content {
+        padding: 1.25rem;
+
+        .project-title {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .more-projects {
+      padding: 1.5rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+} 

@@ -1,0 +1,209 @@
+// Variables
+$primary-color: #2563eb;
+$primary-dark: #1d4ed8;
+$secondary-color: #64748b;
+$accent-color: #f59e0b;
+$text-dark: #1e293b;
+$text-light: #64748b;
+$bg-light: #f8fafc;
+$white: #ffffff;
+$shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+
+// Mixins
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Navbar Styles
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+
+  .nav-container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .nav-logo {
+    text-decoration: none;
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $primary-color;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-dark;
+      }
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      position: fixed;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: $white;
+      flex-direction: column;
+      padding: 2rem;
+      gap: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+
+      &.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: $text-dark;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: $primary-color;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: $primary-color;
+
+        &::after {
+          width: 100%;
+        }
+      }
+
+      &.active {
+        color: $primary-color;
+        font-weight: 600;
+
+        &::after {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        font-size: 1.1rem;
+        padding: 0.75rem 0;
+        width: 100%;
+        text-align: center;
+
+        &::after {
+          display: none;
+        }
+
+        &:hover {
+          background: $bg-light;
+          border-radius: $border-radius;
+        }
+      }
+    }
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+
+    .hamburger {
+      width: 25px;
+      height: 3px;
+      background: $text-dark;
+      margin: 3px 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+
+      &.active {
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+    }
+  }
+}
+
+// Add padding to body to account for fixed navbar
+body {
+  padding-top: 80px;
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .navbar {
+    .nav-container {
+      padding: 0.75rem 1rem;
+    }
+
+    .nav-logo {
+      .logo-text {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    .nav-container {
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-logo {
+      .logo-text {
+        font-size: 1.1rem;
+      }
+    }
+  }
+} 

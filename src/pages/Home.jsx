@@ -4,7 +4,7 @@ function Home() {
     return (
         <div className="home">
             {/* Hero Section */}
-            <section className="hero">
+            <section className="container hero">
                 <div className="hero-content">
                     <h1 className="hero-title">
                         Hi, I&apos;m <span className="highlight">Prasanna</span>

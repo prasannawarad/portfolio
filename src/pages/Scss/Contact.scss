@@ -1,0 +1,254 @@
+// Variables
+$primary-color: #2563eb;
+$primary-dark: #1d4ed8;
+$secondary-color: #64748b;
+$accent-color: #f59e0b;
+$text-dark: #1e293b;
+$text-light: #64748b;
+$bg-light: #f8fafc;
+$white: #ffffff;
+$shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$border-radius: 8px;
+
+// Mixins
+@mixin container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@mixin section-padding {
+  padding: 4rem 0;
+}
+
+// Contact Page Styles
+.contact-page {
+  @include section-padding;
+  background: $bg-light;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+  color: $text-dark;
+
+  .container {
+    @include container;
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: $text-dark;
+    
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  .contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .contact-info {
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: $primary-color;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: $text-light;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .contact-method {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: $white;
+        border-radius: $border-radius;
+        box-shadow: $shadow;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: translateY(-3px);
+        }
+
+        .icon {
+          font-size: 2rem;
+          width: 60px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: $primary-color;
+          color: $white;
+          border-radius: 50%;
+        }
+
+        .details {
+          h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: $text-dark;
+            margin-bottom: 0.5rem;
+          }
+
+          p {
+            font-size: 1rem;
+            color: $text-light;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    background: $white;
+    padding: 2.5rem;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: $primary-color;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        font-size: 1rem;
+        font-weight: 500;
+        color: $text-dark;
+        margin-bottom: 0.5rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #e2e8f0;
+        border-radius: $border-radius;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $primary-color;
+        }
+
+        &::placeholder {
+          color: $text-light;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: $primary-color;
+      color: $white;
+      border: none;
+      border-radius: $border-radius;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $primary-dark;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .contact-page {
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .contact-content {
+      gap: 2rem;
+    }
+
+    .contact-info {
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .contact-methods {
+        .contact-method {
+          padding: 1.25rem;
+
+          .icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    .contact-form {
+      padding: 2rem;
+
+      h2 {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-page {
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .contact-form {
+      padding: 1.5rem;
+    }
+  }
+} 
