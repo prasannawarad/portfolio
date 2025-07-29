@@ -119,6 +119,39 @@ $border-radius: 8px;
             margin: 0;
           }
         }
+
+        &.clickable {
+          text-decoration: none;
+          color: inherit;
+          cursor: pointer;
+          border: 2px solid transparent;
+          transition: all 0.3s ease;
+
+          &:hover {
+            transform: translateY(-3px);
+            border-color: $primary-color;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.15);
+
+            .icon {
+              background: $primary-dark;
+              transform: scale(1.05);
+            }
+
+            .details {
+              h3 {
+                color: $primary-color;
+              }
+
+              p {
+                color: $primary-color;
+              }
+            }
+          }
+
+          &:active {
+            transform: translateY(-1px);
+          }
+        }
       }
     }
   }

@@ -22,37 +22,50 @@ function Contact() {
                         </p>
                         
                         <div className="contact-methods">
-                            <div className="contact-method">
+                            <a 
+                                href="mailto:waradprasanna@gmail.com" 
+                                className="contact-method clickable"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <div className="icon">📧</div>
                                 <div className="details">
                                     <h3>Email</h3>
-                                    <p>prasanna@example.com</p>
+                                    <p>waradprasanna@gmail.com</p>
                                 </div>
-                            </div>
+                            </a>
                             
-                            <div className="contact-method">
+                            <a 
+                                href="tel:+14697667241" 
+                                className="contact-method clickable"
+                            >
                                 <div className="icon">📱</div>
                                 <div className="details">
                                     <h3>Phone</h3>
-                                    <p>+1 (555) 123-4567</p>
+                                    <p>+1 (469) 766-7241</p>
                                 </div>
-                            </div>
+                            </a>
                             
                             <div className="contact-method">
                                 <div className="icon">📍</div>
                                 <div className="details">
                                     <h3>Location</h3>
-                                    <p>San Francisco, CA</p>
+                                    <p>Dallas, TX</p>
                                 </div>
                             </div>
                             
-                            <div className="contact-method">
+                            <a 
+                                href="https://www.linkedin.com/in/prasannawarad/" 
+                                className="contact-method clickable"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
                                 <div className="icon">💼</div>
                                 <div className="details">
                                     <h3>LinkedIn</h3>
                                     <p>linkedin.com/in/prasannawarad</p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                     
